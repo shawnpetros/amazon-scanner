@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import {
   Dimensions,
   Animated,
@@ -12,13 +13,11 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import * as Permissions from "expo-permissions";
 import { BarCodeScanner } from "expo-barcode-scanner";
-import { useUpcState } from "../hooks";
 
-export default function BarcodeScreen({ navigation }) {
+function BarcodeScreen({ navigation }) {
   const screenHeight = Dimensions.get("window").height;
   const [animation] = useState(new Animated.Value(0));
   const [canUseCamera, setCanUseCamera] = useState(null);
-  const [_, setUpc] = useUpcState();
   const [scanned, setScanned] = useState(false);
   useEffect(() => {
     getPermsAsync();
@@ -57,7 +56,7 @@ export default function BarcodeScreen({ navigation }) {
   };
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    setUpc(data);
+    alert(data);
     handleBack();
   };
   return (
@@ -105,6 +104,7 @@ export default function BarcodeScreen({ navigation }) {
   );
 }
 
+export default connect()(BarcodeScreen);
 const styles = StyleSheet.create({
   container: { flex: 1 },
   closeContainer: {

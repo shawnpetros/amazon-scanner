@@ -1,14 +1,12 @@
-import * as WebBrowser from "expo-web-browser";
 import React from "react";
+import { connect } from "react-redux";
 import { Button, ScrollView, StyleSheet, Text } from "react-native";
-import { useUpcState } from "../hooks";
 
-export default function HomeScreen({ navigation }) {
-  const [upc] = useUpcState();
+function HomeScreen({ navigation, barcode }) {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>This is a homescreen</Text>
-      <Text style={styles.text}>{upc}</Text>
+      <Text style={styles.text}>this should be upc {`${barcode}`}</Text>
       <Button
         title="Click me foo"
         onPress={() => navigation.navigate("Barcode")}
@@ -16,6 +14,8 @@ export default function HomeScreen({ navigation }) {
     </ScrollView>
   );
 }
+
+export default connect(({ barcode }) => ({ barcode }))(HomeScreen);
 
 HomeScreen.navigationOptions = {
   title: ""
