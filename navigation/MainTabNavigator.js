@@ -1,104 +1,119 @@
-import React from "react";
-import { Platform } from "react-native";
+import React from 'react'
+import { Platform } from 'react-native'
 import {
   createStackNavigator,
   createBottomTabNavigator
-} from "react-navigation";
+} from 'react-navigation'
 
-import TabBarIcon from "../components/TabBarIcon";
-import HomeScreen from "../screens/HomeScreen";
-import BarcodeScreen from "../screens/BarcodeScreen";
-import LinksScreen from "../screens/LinksScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import TabBarIcon from '../components/TabBarIcon'
+import HomeScreen from '../screens/HomeScreen'
+import ItemScreen from '../screens/ItemScreen'
+import BarcodeScreen from '../screens/BarcodeScreen'
+import LinksScreen from '../screens/LinksScreen'
+import SettingsScreen from '../screens/SettingsScreen'
 
 const config = Platform.select({
-  web: { headerMode: "screen" },
+  web: { headerMode: 'screen' },
   default: {}
-});
+})
 
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen
   },
   config
-);
+)
 
 HomeStack.navigationOptions = {
-  tabBarLabel: "Home",
+  tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === "ios"
-          ? `ios-information-circle${focused ? "" : "-outline"}`
-          : "md-information-circle"
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
       }
     />
   )
-};
+}
 
-HomeStack.path = "";
+HomeStack.path = ''
 
 const LinksStack = createStackNavigator(
   {
     Links: LinksScreen
   },
   config
-);
+)
 
 LinksStack.navigationOptions = {
-  tabBarLabel: "Links",
+  tabBarLabel: 'Links',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-link" : "md-link"}
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
     />
   )
-};
+}
 
-LinksStack.path = "";
+LinksStack.path = ''
 
 const SettingsStack = createStackNavigator(
   {
     Settings: SettingsScreen
   },
   config
-);
+)
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: "Settings",
+  tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-options" : "md-options"}
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
     />
   )
-};
+}
 
-SettingsStack.path = "";
+SettingsStack.path = ''
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack
-});
+})
 
-tabNavigator.path = "";
+tabNavigator.path = ''
 
 const BarcodeStack = createStackNavigator(
   {
     Barcode: BarcodeScreen
   },
   config
-);
+)
 
 BarcodeStack.navigationOptions = {
-  title: "Barcode"
-};
+  title: 'Barcode'
+}
 
-BarcodeStack.path = "";
+BarcodeStack.path = ''
+
+const ItemStack = createStackNavigator(
+  {
+    Item: ItemScreen
+  },
+  config
+)
+
+ItemStack.navigationOptions = {
+  title: 'Item',
+  gesturesEnabled: false
+}
+
+ItemStack.path = ''
 
 export default createStackNavigator(
-  { tabNavigator, BarcodeStack },
-  { headerMode: "none" }
-);
+  { tabNavigator, BarcodeStack, ItemStack },
+  { headerMode: 'none' }
+)

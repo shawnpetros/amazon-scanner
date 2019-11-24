@@ -1,64 +1,64 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import {
   Dimensions,
   Animated,
   StyleSheet,
   Text,
   View,
-  Button,
   Platform,
   TouchableOpacity
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import * as Permissions from "expo-permissions";
-import { BarCodeScanner } from "expo-barcode-scanner";
+} from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import * as Permissions from 'expo-permissions'
+import { BarCodeScanner } from 'expo-barcode-scanner'
+import { setCode } from '../store/actions/barcode'
 
-function BarcodeScreen({ navigation }) {
-  const screenHeight = Dimensions.get("window").height;
-  const [animation] = useState(new Animated.Value(0));
-  const [canUseCamera, setCanUseCamera] = useState(null);
-  const [scanned, setScanned] = useState(false);
+function BarcodeScreen ({ navigation, setCode }) {
+  const screenHeight = Dimensions.get('window').height
+  const [animation] = useState(new Animated.Value(0))
+  const [canUseCamera, setCanUseCamera] = useState(null)
+  const [scanned, setScanned] = useState(false)
   useEffect(() => {
-    getPermsAsync();
-    setTimeout(animateOpen, 200);
-  }, []);
+    getPermsAsync()
+    setTimeout(animateOpen, 200)
+  }, [])
 
   const animateOpen = () => {
     Animated.timing(animation, {
       toValue: 1,
       duration: 300
-    }).start();
-  };
+    }).start()
+  }
 
   const handleBack = () => {
-    animateClose(() => navigation.dismiss());
-  };
+    animateClose(() => navigation.dismiss())
+  }
 
   const animateClose = cb => {
     Animated.timing(animation, {
       toValue: 0,
       duration: 200
-    }).start(cb);
-  };
+    }).start(cb)
+  }
 
   const slideUp = {
     height: animation.interpolate({
       inputRange: [0, 1],
       outputRange: [0, screenHeight * 0.3],
-      extrapolate: "clamp"
+      extrapolate: 'clamp'
     })
-  };
+  }
 
   const getPermsAsync = async () => {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    setCanUseCamera(status === "granted");
-  };
+    const { status } = await Permissions.askAsync(Permissions.CAMERA)
+    setCanUseCamera(status === 'granted')
+  }
   const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(data);
-    handleBack();
-  };
+    setScanned(true)
+    setCode(data)
+    handleBack()
+  }
   return (
     <View style={styles.container}>
       {canUseCamera === null && <Text>Requesting camera permission</Text>}
@@ -67,16 +67,14 @@ function BarcodeScreen({ navigation }) {
         <View
           style={{
             flex: 1,
-            flexDirection: "column",
-            justifyContent: "flex-end"
+            flexDirection: 'column',
+            justifyContent: 'flex-end'
           }}
         >
           <BarCodeScanner
             onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
             style={[StyleSheet.absoluteFillObject]}
           />
-
-          <View styles={styles.barcodeBox}></View>
           <View style={styles.barcodeBox} />
           <Animated.View style={[styles.bottomView, slideUp]}>
             <View>
@@ -87,7 +85,7 @@ function BarcodeScreen({ navigation }) {
                 <View>
                   <Ionicons
                     style={styles.close}
-                    name={Platform.OS === "ios" ? "ios-close" : "md-close"}
+                    name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'}
                     size={35}
                   />
                 </View>
@@ -101,10 +99,14 @@ function BarcodeScreen({ navigation }) {
         </View>
       )}
     </View>
-  );
+  )
 }
 
-export default connect()(BarcodeScreen);
+export default connect(
+  null,
+  { setCode }
+)(BarcodeScreen)
+
 const styles = StyleSheet.create({
   container: { flex: 1 },
   closeContainer: {
@@ -113,40 +115,40 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     borderRadius: 55,
-    alignSelf: "flex-end"
+    alignSelf: 'flex-end'
   },
   close: {
-    textAlign: "center",
+    textAlign: 'center',
     right: 0
   },
   barcodeBox: {
-    bottom: "25%",
-    height: "25%",
-    width: "90%",
+    bottom: '15%',
+    height: '25%',
+    width: '90%',
     borderWidth: 4,
-    borderColor: "#fff",
-    borderStyle: "solid",
+    borderColor: '#fff',
+    borderStyle: 'solid',
     borderRadius: 20,
-    alignSelf: "center",
-    alignContent: "flex-start"
+    alignSelf: 'center',
+    alignContent: 'flex-start'
   },
   bottomViewHeader: {
     marginTop: 45,
     fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   bottomViewText: {
     margin: 10,
-    textAlign: "center"
+    textAlign: 'center'
   },
   bottomView: {
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    backgroundColor: "white"
+    backgroundColor: 'white'
   }
-});
+})
 
 BarcodeScreen.navigationOptions = {
   header: null
-};
+}

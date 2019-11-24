@@ -1,3 +1,3 @@
-const SCANNED = "SCANNED";
+const SCANNED = 'SCANNED'
 
-export { SCANNED };
+export { SCANNED }

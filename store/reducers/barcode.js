@@ -1,10 +1,10 @@
-import { SCANNED } from "../types";
+import { SCANNED } from '../types'
 
-export default function(state = "123345", action) {
+export default function (state = '', action) {
   switch (action.type) {
     case SCANNED:
-      return action.code;
+      return action.code
     default:
-      return state;
+      return state
   }
 }

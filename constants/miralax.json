@@ -1,0 +1,123 @@
+{
+    "products": [
+        {
+            "product_name": "Miralax Powder 30 Doses 17.9 Oz by Miralax",
+            "category": "Health & Beauty > Health Care > Fitness & Nutrition > Vitamins & Supplements",
+            "manufacturer": "MiraLAX",
+            "brand": "Miralax",
+            "audience_rating": "Adult",
+            "size": "17.9 oz",
+            "description": "Relieves Occasional ConstipationSoftens StoolOriginal Prescription Strength.",
+            "images": [
+                "https://images.barcodelookup.com/1032/10323486-1.jpg"
+            ],
+            "stores": [
+                {
+                    "store_name": "Jet.com",
+                    "store_price": "15.98",
+                    "product_url": "http://jet.com/product/detail/7e5c8d86ec7b478fbc52eae80a15ac5c",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Target",
+                    "store_price": "18.99",
+                    "product_url": "https://www.target.com/p/miralax-laxative-powder-30-days-17-9oz/-/A-11299923",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Shopko",
+                    "store_price": "19.99",
+                    "product_url": "http://www.shopko.com/catalog/product.jsp?productId=89257",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "LuckyVitamin.com",
+                    "store_price": "24.71",
+                    "product_url": "https://www.luckyvitamin.com/p-0-?utm_source=cj&utm_medium=affiliate&utm_term=MiraLaxLaxativePowderforSolution179oz&utm_content=129622&utm_campaign=cj&site=www.cj.com",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Pharmapacks",
+                    "store_price": "24.65",
+                    "product_url": "https://www.pharmapacks.com/products.php?product=MiraLAX-Powder-17.90-oz",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Walgreens",
+                    "store_price": "24.99",
+                    "product_url": "https://www.walgreens.com/store/c/miralax-polyethylene-glycol-3350-unflavored/ID=prod3488186-product",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "CVS",
+                    "store_price": "24.79",
+                    "product_url": "https://www.cvs.com/shop/health-medicine/digestive-health/laxatives/miralax-laxative-powder-prodid-1011834?skuid=437961&WT.mc_id=ps_google_pla_437961",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Vitacost.com",
+                    "store_price": "23.99",
+                    "product_url": "https://www.vitacost.com/miralax-osmotic-laxative-powder-17-9-oz?csrc=GPF-041100820716",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Herbspro.com",
+                    "store_price": "23.90",
+                    "product_url": "https://www.herbspro.com/miralax-powder-30-doses-96340",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "HerbsPro",
+                    "store_price": "26.78",
+                    "product_url": "https://www.herbspro.com/miralax-powder-30-doses-96340",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Blain Farm & Fleet",
+                    "store_price": "27.99",
+                    "product_url": "https://www.farmandfleet.com/products/1067568-miralax-miralax-30-day.html?feedsource=2",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Market America Brands SHOP.COM/Motives Cosmetics/Isotonix",
+                    "store_price": "28.18",
+                    "product_url": "https://www.shop.com/Miralax+Powder+Unflavored+17+9+oz+All-1458413527-p+.xhtml?sourceid=3478",
+                    "currency_code": "CAD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Newegg.com",
+                    "store_price": "29.99",
+                    "product_url": "https://www.newegg.com/p/0DC-034W-00001?item=9SIAEF366V0375&nm_mc=afc-c8junction-mkpl&cm_mmc=afc-c8junction-mkpl-_-hw+-+vitamins++minerals+++supplements-_-miralax-_-9siaef366v0375",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Rakuten.com",
+                    "store_price": "30.46",
+                    "product_url": "https://www.rakuten.com/shop/otcshoppeexpress/product/4006912/?sku=4006912&scid=af_feed",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                },
+                {
+                    "store_name": "Shoplet.com",
+                    "store_price": "38.51",
+                    "product_url": "https://www.shoplet.com/afred2.xgi?ue=1&pt=cj&",
+                    "currency_code": "USD",
+                    "currency_symbol": "$"
+                }
+            ]
+        }
+    ]
+}
